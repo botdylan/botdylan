@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="botdylan : Once upon a time, you controled your Github repositories, the pull requests and the commits... didn't yoooou?" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>botdylan</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/botdylan/botdylan">View on GitHub</a>
+
+          <h1 id="project_title">botdylan</h1>
+          <h2 id="project_tagline">Once upon a time, you controled your Github repositories, the pull requests and the commits... didn't yoooou?</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/botdylan/botdylan/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/botdylan/botdylan/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p><img src="https://raw.github.com/botdylan/botdylan/master/img/botdylan.png" alt=""></p>
+
+<p>Once upon a time, you managed your Github repositories,</p>
+
+<p>the pull requests and the commits... didn't yoooou?</p>
+
+<h1>
+<a name="botdylan-automatize-your-github-processes-with-js-scripts" class="anchor" href="#botdylan-automatize-your-github-processes-with-js-scripts"><span class="octicon octicon-link"></span></a><code>botdylan</code>: Automatize your Github processes with js scripts.</h1>
+
+<p><code>botdylan</code> runs as a daemon. Is configured by writing a <code>config.json</code> file
+that will contain all the information about the <code>cron</code> and <code>hooks</code> scripts.</p>
+
+<pre><code>$ ls /etc/botdylan
+scripts/hooks
+scripts/cron
+config.json
+
+$ botdylan --dir /etc/botdylan
+</code></pre>
+
+<h2>
+<a name="why" class="anchor" href="#why"><span class="octicon octicon-link"></span></a>Why?</h2>
+
+<p><code>botdylan</code> was initially build and used internally at [Teambox](<a href="http://teambox.com">http://teambox.com</a>].</p>
+
+<p>We use Github heavily. There are some repetitive tasks that are taking away our time
+from hacking a better product. Since we are on the productive space we decided to
+stop doing things manually and start to have a more productive environment to work with.</p>
+
+<p>The project is heavily inspired by <a href="https://github.com/github/hubot">hubot</a>.</p>
+
+<h2>
+<a name="command-line-options" class="anchor" href="#command-line-options"><span class="octicon octicon-link"></span></a>Command line options</h2>
+
+<p><code>botdylan</code> has just one CLI option:</p>
+
+<ul>
+<li>
+<code>dir [current_path]</code>: Location of your <code>script</code> folders and <code>config.json</code>.</li>
+</ul><h2>
+<a name="configjson" class="anchor" href="#configjson"><span class="octicon octicon-link"></span></a>Config.json</h2>
+
+<p>Configuring botdylan is damn simple! Just populate your <code>config.json</code> file on your
+configuration directory with the following options:</p>
+
+<ul>
+<li>
+<code>username</code>: Bot username</li>
+<li>
+<code>password</code>: Bot password</li>
+<li>
+<code>repositories</code>: Hash of repositories (owner/repository) with the <code>cron</code> and <code>hooks</code> setted up</li>
+<li>
+<code>port [80]</code>: Port to listen github webhooks</li>
+<li>
+<code>silent [false]</code>: Flag to disable output</li>
+</ul><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">"username"</span><span class="o">:</span> <span class="s2">"botdylan"</span>
+<span class="p">,</span> <span class="s2">"password"</span><span class="o">:</span> <span class="s2">"blood-on-the-tracks"</span>
+<span class="p">,</span> <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://example.com"</span>
+<span class="p">,</span> <span class="s2">"port"</span><span class="o">:</span> <span class="mi">5000</span>
+<span class="p">,</span> <span class="s2">"repositories"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"botdylan/test"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"crons"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"0 0 0 * * *"</span><span class="o">:</span> <span class="p">[</span><span class="s2">"ping"</span><span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">,</span> <span class="s2">"hooks"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"issue_comment"</span><span class="o">:</span> <span class="p">[</span><span class="s2">"pong"</span><span class="p">]</span>
+      <span class="p">,</span> <span class="s2">"push"</span> <span class="o">:</span> <span class="p">[</span><span class="s2">"cowboys"</span><span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Scripts under <code>scripts/hooks</code> will run on any given <a href="http://developer.github.com/v3/repos/hooks/">hook event</a>,
+<code>botdylan</code> will create the hooks automatically if they don't exist.</p>
+
+<p>Scripts under <code>scripts/cron</code> use the <code>cron</code> syntax.</p>
+
+<h2>
+<a name="how-to-write-botdylan-scripts" class="anchor" href="#how-to-write-botdylan-scripts"><span class="octicon octicon-link"></span></a>How to write <code>botdylan</code> scripts?</h2>
+
+<p>The scripts should export a single function that will be executed by
+<code>botdylan</code>. Hook scripts will receive the request object.</p>
+
+<p>Use <a href="https://github.com/ajaxorg/node-github">node-github</a> to access the API.</p>
+
+<p>Cron scripts receive:</p>
+
+<ul>
+<li><code>bot</code></li>
+<li><code>repo_info</code></li>
+</ul><p>Hooks scripts receive:</p>
+
+<ul>
+<li><code>bot</code></li>
+<li><code>repo_info</code></li>
+<li><code>payload</code></li>
+</ul><p>You will find plenty of examples on the <code>scripts</code> folder.</p>
+
+<h2>
+<a name="the-bot-helper-object" class="anchor" href="#the-bot-helper-object"><span class="octicon octicon-link"></span></a>The <code>bot</code> helper object</h2>
+
+<p>This object represents our beloved bot. It has some methods to help you write your scripts:</p>
+
+<ul>
+<li>
+<code>trace</code>: Write a message to the console unless the <code>silent</code> option is sent</li>
+<li>
+<code>options</code>: Options from your <code>config.json</code> file</li>
+<li>
+<code>handleError</code>: Function applicator that handles showing errors if any</li>
+<li>
+<code>github</code>: Authenticated <code>GitHubApi</code> instance from
+          <a href="https://github.com/ajaxorg/node-github">node-github</a>
+</li>
+<li>
+<code>http</code>: A <a href="https://github.com/mikeal/request">request</a> instance</li>
+<li>
+<code>events</code>: Contains a <code>on</code> and an <code>emit</code> message. Ideal to communicate between scripts</li>
+<li>
+<code>store</code>: A getter/setter memory storage.</li>
+</ul><h1>
+<a name="todo" class="anchor" href="#todo"><span class="octicon octicon-link"></span></a>TODO</h1>
+
+<p>There are plenty of things that we would like to have soon done:</p>
+
+<ul>
+<li>More scripts! Most of them can be imported from hubot which we love &lt;3</li>
+<li>
+<code>scripts/events</code> to be able to create scripts that are invoked from custom events</li>
+<li>Better tools for bot to reduce the boilerplate on the scripts</li>
+<li>Better documentation and how to script guides</li>
+</ul><h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>(The MIT License)</p>
+
+<p>Copyright (c) 2013 Pau Ramon <a href="mailto:masylum@gmail.com">masylum@gmail.com</a></p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">botdylan maintained by <a href="https://github.com/botdylan">botdylan</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
