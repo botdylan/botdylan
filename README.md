@@ -20,10 +20,10 @@ $ botdylan --dir /etc/botdylan
 
 ## Why?
 
-`botdylan` was initially build and used internally at [Teambox](http://teambox.com].
+`botdylan` was initially build and used internally at [Teambox](http://teambox.com).
 
-We use Github heavily. There are some repetitive tasks that are taking away our time
-from hacking a better product. Since we are on the productive space we decided to
+We use Github heavily. There are some repetitive tasks that were taking away our time
+to hack a better product. Since we are on the productivity space we decided to
 stop doing things manually and start to have a more productive environment to work with.
 
 The project is heavily inspired by [hubot](https://github.com/github/hubot).
@@ -32,7 +32,7 @@ The project is heavily inspired by [hubot](https://github.com/github/hubot).
 
 `botdylan` has just one CLI option:
 
-  * `dir [current_path]`: Location of your `script` folders and `config.json`.
+  * `--dir [current_path]`: Location of your `script` folders and `config.json`.
 
 ## Config.json
 
@@ -72,10 +72,8 @@ Scripts under `scripts/cron` use the `cron` syntax.
 
 ## How to write `botdylan` scripts?
 
-The scripts should export a single function that will be executed by
-`botdylan`. Hook scripts will receive the request object.
-
-Use [node-github](https://github.com/ajaxorg/node-github) to access the API.
+The scripts have to export a single function that will be executed by
+`botdylan`.
 
 Cron scripts receive:
   - `bot`
@@ -86,7 +84,7 @@ Hooks scripts receive:
   - `repo_info`
   - `payload`
 
-You will find plenty of examples on the `scripts` folder.
+You will find plenty of examples under the `scripts` folder.
 
 ## The `bot` helper object
 
@@ -95,7 +93,7 @@ This object represents our beloved bot. It has some methods to help you write yo
   - `trace`: Write a message to the console unless the `silent` option is sent
   - `options`: Options from your `config.json` file
   - `handleError`: Function applicator that handles showing errors if any
-  - `github`: Authenticated `GitHubApi` instance from
+  - `github`: Authenticated `GitHubApi` instance of
               [node-github](https://github.com/ajaxorg/node-github)
   - `http`: A [request](https://github.com/mikeal/request) instance
   - `events`: Contains a `on` and an `emit` message. Ideal to communicate between scripts
