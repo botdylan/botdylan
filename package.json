@@ -1,0 +1,25 @@
+{
+  "name": "botdylan",
+  "description": "github bot",
+  "version": "0.0.1",
+  "author": "Pau Ramon <masylum@gmail.com>",
+  "contributors": [
+      {"name": "Pau Ramon", "email": "masylum@gmail.com"}
+  ],
+  "keywords": ["github", "bot", "git", "ci", "hubot"],
+  "dependencies": {
+    "node-github": "0.0.3",
+    "commander": "1.1.1",
+    "cjson": "0.2.1",
+    "underscore": "1.5.1",
+    "github": "0.1.8",
+    "cron": "1.0.1",
+    "request": "2.25.0"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "sinon": "*"
+  },
+  "repository" : {"type": "git" , "url": "http://github.com/botdylan/botdylan.git" },
+  "engines": { "node": ">= 0.8.0" }
+}

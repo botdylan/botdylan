@@ -1,0 +1,16 @@
+{
+  "username": ""
+, "password": ""
+, "url": ""
+, "port": 5000
+, "repositories": {
+    "botdylan/test": {
+      "crons": {
+        "0 0 * * * *": ["ping"]
+      }
+    , "hooks": {
+        "issue_comment": ["pong"]
+      }
+    }
+  }
+}
