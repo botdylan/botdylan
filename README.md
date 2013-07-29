@@ -4,10 +4,11 @@ Once upon a time, you managed your Github repositories,
 
 the pull requests and the commits... didn't yoooou?
 
-# `botdylan`: Automatize your Github processes with js scripts.
+# `botdylan`: Automate your Github processes with js scripts.
 
-`botdylan` runs as a daemon. Is configured by writing a `config.json` file
-that will contain all the information about the `cron` and `hooks` scripts.
+`botdylan` runs as a daemon. It's configured by writing a `config.json` file
+that describes `cron` and `hooks` scripts. `cron` scripts execute periodically
+and `hook` scripts execute on `github hook` events.
 
 ```
 $ ls /etc/botdylan
@@ -20,10 +21,10 @@ $ botdylan --dir /etc/botdylan
 
 ## Why?
 
-`botdylan` was initially build and used internally at [Teambox](http://teambox.com).
+`botdylan` was initially built and used internally at [Teambox](http://teambox.com).
 
 We use Github heavily. There are some repetitive tasks that were taking away our time
-to hack a better product. Since we are on the productivity space we decided to
+to hack on a better product. Since we are in the productivity space we decided to
 stop doing things manually and start to have a more productive environment to work with.
 
 The project is heavily inspired by [hubot](https://github.com/github/hubot).
