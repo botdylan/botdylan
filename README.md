@@ -12,7 +12,7 @@ that will contain all the information about the `cron` and `hooks` scripts.
 ```
 $ ls /etc/botdylan
 scripts/hooks
-scripts/cron
+scripts/crons
 config.json
 
 $ botdylan --dir /etc/botdylan
@@ -32,7 +32,7 @@ The project is heavily inspired by [hubot](https://github.com/github/hubot).
 
 `botdylan` has just one CLI option:
 
-  * `--dir [current_path]`: Location of your `script` folders and `config.json`.
+  * `--dir [current_path]`: Location of your `scripts` folder and `config.json`.
 
 ## Config.json
 
@@ -68,7 +68,7 @@ configuration directory with the following options:
 Scripts under `scripts/hooks` will run on any given [hook event](http://developer.github.com/v3/repos/hooks/),
 `botdylan` will create the hooks automatically if they don't exist.
 
-Scripts under `scripts/cron` use the `cron` syntax.
+Scripts under `scripts/crons` use the `cron` syntax.
 
 ## How to write `botdylan` scripts?
 
