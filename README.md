@@ -29,6 +29,19 @@ stop doing things manually and start to have a more productive environment to wo
 
 The project is heavily inspired by [hubot](https://github.com/github/hubot).
 
+## Give me some examples...
+
+You can automatize any process in GitHub. Some of the things we are currently doing:
+
+  - Label issues with the status of the CI
+  - Show a cowboy image when someone posts directly to develop.
+  - Label issues that have 2 or more thumbs
+  - Post images on demand "image me..."
+  - Label issues with the status of the PR (mergeable or not)
+  - Ping inactive pull requests
+  - Post message to your chat room (when the CI fails for instance)
+  - Interact with other services via HTTP
+
 ## Command line options
 
 `botdylan` has just one CLI option:
