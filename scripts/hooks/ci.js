@@ -55,7 +55,7 @@ module.exports = function ci(bot, repo_info, payload) {
 
     comment_options = _.extend({
       number: number
-    , body: '![](' + sad_images[Math.round(Math.random() * sad_images.length)] + ')'
+    , body: '![](' + sad_images[_.random(sad_images.length)] + ')'
     }, options);
 
     bot.github.issues.createComment(comment_options, bot.handleError(function (data) {
