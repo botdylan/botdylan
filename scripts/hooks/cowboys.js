@@ -24,7 +24,7 @@ module.exports = function cowboys(bot, repo_info, payload) {
   comment_options = _.extend({
     sha: payload.after
   , commit_id: payload.after
-  , body: '![](' + cowboy_images[Math.round(Math.random() * cowboy_images.length)] + ')'
+  , body: '![](' + cowboy_images[_.random(cowboy_images.length)] + ')'
   }, options);
 
   bot.github.repos.createCommitComment(comment_options, bot.handleError(function () {
