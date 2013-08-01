@@ -1,0 +1,28 @@
+{
+  "username": "botdylan"
+, "password": "5uper5ecret"
+, "url": "http://boiling-coast-2882.herokuapp.com"
+, "port": 5000
+, "repositories": {
+    "teambox/teambox-frontend": {
+      "crons": {
+        "0 0 0 * * *": ["ping"]
+      }
+    , "hooks": {
+        "issue_comment": ["google-images"]
+      , "push" : ["cowboys"]
+      , "status" : ["ci"]
+      }
+    }
+  , "teambox/Teambox-hosted": {
+      "crons": {
+        "0 0 0 * * *": ["ping"]
+      }
+    , "hooks": {
+        "issue_comment": ["google-images"]
+      , "push" : ["cowboys"]
+      , "status" : ["ci"]
+      }
+    }
+  }
+}
