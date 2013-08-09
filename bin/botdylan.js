@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 var program = require('commander')
+  , fs = require('fs')
   , config_directory
   , config_options
   , app_options
@@ -10,7 +11,7 @@ var program = require('commander')
 GLOBAL._ = require('underscore');
 
 program
-  .version('0.0.1')
+  .version(JSON.parse(fs.readFileSync(__dirname + '/../package.json', 'utf8')).version)
   .option('-d', '--dir', 'Configuration and scripts directory', String)
   .parse(process.argv);
 
