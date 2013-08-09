@@ -2,28 +2,23 @@
 
 var program = require('commander')
   , fs = require('fs')
-  , config_directory
+  , config_file
   , config_options
   , app_options
-  , default_options = {silent: false, port: 80, dir: process.cwd()}
-  , mandatory_options = ['dir'];
+  , default_options = {silent: false, port: 80};
 
 GLOBAL._ = require('underscore');
 
 program
   .version(JSON.parse(fs.readFileSync(__dirname + '/../package.json', 'utf8')).version)
-  .option('-d', '--dir', 'Configuration and scripts directory', String)
+  .usage('[options]')
+  .option('-d, --dir <path>', 'Configuration and scripts directory', __dirname)
   .parse(process.argv);
 
-config_directory = default_options.dir || program.dir;
-config_options = require('cjson').load(config_directory + '/config.json');
-app_options = _.extend(default_options, config_options);
+default_options.dir = program.dir;
+config_file = default_options.dir + '/config.json';
 
-_.each(mandatory_options, function (mandatory_option) {
-  if (_.isUndefined(app_options[mandatory_option])) {
-    console.error('--' + mandatory_option + ' is mandatory!');
-    process.exit(1);
-  }
-});
+config_options = require('cjson').load(config_file);
+app_options = _.extend(default_options, config_options);
 
 require('../lib/bootstrap')(app_options);
