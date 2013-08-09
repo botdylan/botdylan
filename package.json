@@ -4,9 +4,9 @@
   "version": "0.0.3",
   "author": "Pau Ramon <masylum@gmail.com>",
   "contributors": [
-      {"name": "Pau Ramon", "email": "masylum@gmail.com"}
-    , {"name": "Ferran Basora", "email": "fcsonline@gmail.com"}
-    , {"name": "Maxim Colls", "email": "collsmaxim@gmail.com"}
+    {"name": "Pau Ramon", "email": "masylum@gmail.com"},
+    {"name": "Ferran Basora", "email": "fcsonline@gmail.com"},
+    {"name": "Maxim Colls", "email": "collsmaxim@gmail.com"}
   ],
   "keywords": ["github", "bot", "git", "ci", "hubot"],
   "dependencies": {
