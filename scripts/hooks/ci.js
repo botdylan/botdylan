@@ -41,7 +41,12 @@ module.exports = function ci(bot, repo_info, payload) {
     }));
   }
 
-  number = payload.pull_request.number;
+  if (!payload.pull_request) {
+    bot.trace('* [CI] Unknown issue!');
+    return;
+  }
+
+  number = payload.issue.number;
 
   bot.trace('* [CI] Issue#' + number + ' has a CI ' + payload.state + ' state');
 
