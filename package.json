@@ -1,7 +1,7 @@
 {
   "name": "botdylan",
   "description": "github bot",
-  "version": "0.0.3",
+  "version": "0.0.7",
   "author": "Pau Ramon <masylum@gmail.com>",
   "contributors": [
     {"name": "Pau Ramon", "email": "masylum@gmail.com"},
