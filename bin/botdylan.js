@@ -6,7 +6,7 @@ var program = require('commander')
   , config_file
   , config_options
   , app_options
-  , default_options = {silent: false, port: 80};
+  , default_options = {silent: false, port: 80, auth: 'basic'};
 
 GLOBAL._ = require('underscore');
 
