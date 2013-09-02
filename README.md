@@ -54,7 +54,8 @@ Configuring botdylan is damn simple! Just populate your `config.json` file on yo
 configuration directory with the following options:
 
   * `username`: Bot username
-  * `password`: Bot password
+  * `password`: Bot password or oauth token
+  * `auth [basic]`: Auth type to use when connecting to GitHub. Can be `basic` (username/password) or `oauth` (username/token)
   * `repositories`: Hash of repositories (owner/repository) with the `cron` and `hooks` setted up
   * `port [80]`: Port to listen github webhooks
   * `silent [false]`: Flag to disable output
