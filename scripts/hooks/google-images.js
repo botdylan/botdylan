@@ -12,7 +12,7 @@
  */
 module.exports = function (bot, repo_info, payload) {
   var body = payload.comment.body
-    , match = body.match(/(image|img)( me)? (.*)/i)
+    , match = body.match(/image( me)? (.*)/i)
     , url = 'http://ajax.googleapis.com/ajax/services/search/images?'
     , query;
 
@@ -20,7 +20,7 @@ module.exports = function (bot, repo_info, payload) {
     return;
   }
 
-  query = match[3];
+  query = match[2];
   url += 'v=1.0&rsz=8&q=' + query + '&safe=active';
 
   bot.http(url, bot.handleError(function (response, body) {
