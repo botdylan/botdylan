@@ -1,6 +1,7 @@
 {
   "username": ""
 , "password": ""
+, "secret": ""
 , "url": ""
 , "port": 5000
 , "repositories": {
