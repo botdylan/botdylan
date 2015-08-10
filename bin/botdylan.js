@@ -25,4 +25,8 @@ console.log('* Configuration path: ' + config_file);
 config_options = require('cjson').load(config_file);
 app_options = _.extend(default_options, config_options);
 
+if (!app_options.secret) {
+  console.log('* No secret specified! Your webhook may be insecure: https://developer.github.com/webhooks/securing/');
+}
+
 require('../lib/bootstrap')(app_options);

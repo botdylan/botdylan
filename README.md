@@ -59,11 +59,13 @@ configuration directory with the following options:
   * `repositories`: Hash of repositories (owner/repository) with the `cron` and `hooks` setted up
   * `port [80]`: Port to listen github webhooks
   * `silent [false]`: Flag to disable output
+  * `secret`: (*Optional*) String with high entropy to [secure your webhook](https://developer.github.com/webhooks/securing/#securing-your-webhooks)
 
 ``` javascript
 {
   "username": "botdylan"
 , "password": "blood-on-the-tracks"
+, "secret": "myhashsecret"
 , "url": "http://example.com"
 , "port": 5000
 , "repositories": {
