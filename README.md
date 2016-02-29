@@ -66,7 +66,7 @@ configuration directory with the following options:
   "username": "botdylan"
 , "password": "blood-on-the-tracks"
 , "secret": "myhashsecret"
-, "url": "http://example.com"
+, "url": "http://example.com:5000"
 , "port": 5000
 , "repositories": {
     "botdylan/test": {
