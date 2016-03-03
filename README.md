@@ -60,6 +60,7 @@ configuration directory with the following options:
   * `port [80]`: Port to listen github webhooks
   * `silent [false]`: Flag to disable output
   * `secret`: (*Optional*) String with high entropy to [secure your webhook](https://developer.github.com/webhooks/securing/#securing-your-webhooks)
+  * `github_api`: (*Optional*) Object with options directly to `GitHubApi` constructor, see [npm's github docs](https://www.npmjs.com/package/github)
 
 ``` javascript
 {
@@ -77,7 +78,11 @@ configuration directory with the following options:
         "issue_comment": ["pong"]
       , "push" : ["cowboys"]
       }
-    }
+    }  
+  }
+, "github_api": {
+     "host": "my-enterprise-github-instance.mycompany.com" // if you're using GitHub Enterprise,
+     "timeout": 2000
   }
 }
 ```
