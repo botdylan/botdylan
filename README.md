@@ -87,6 +87,16 @@ Scripts under `scripts/hooks` will run on any given [hook event](http://develope
 
 Scripts under `scripts/crons` use the `cron` syntax.
 
+## Environment variables
+
+Sometimes you might not want to store your GitHub credentials inside repository. In order to prevent this you can use three environment variables: `GITHUB_USERNAME`, `GITHUB_PASSWORD`, `GITHUB_WEBHOOK_SECRET` - when set they will overwrite `username`, `password`, `secret` config options.
+
+Example:
+
+```
+GITHUB_USERNAME=johndoe GITHUB_PASSWORD=qwerty GITHUB_WEBHOOK_SECRET=bazinga botdylan --dir /etc/botdylan
+```
+
 ## How to write `botdylan` scripts?
 
 The scripts have to export a single function that will be executed by
