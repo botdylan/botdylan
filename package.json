@@ -1,13 +1,14 @@
 {
   "name": "botdylan",
   "description": "github bot",
-  "version": "0.0.10",
+  "version": "0.1.0",
   "author": "Pau Ramon <masylum@gmail.com>",
   "contributors": [
     {"name": "Pau Ramon", "email": "masylum@gmail.com"},
     {"name": "Ferran Basora", "email": "fcsonline@gmail.com"},
     {"name": "Maxim Colls", "email": "collsmaxim@gmail.com"},
-    {"name": "Graham Ballantyne", "email": "hello@grahamballantyne.com"}
+    {"name": "Graham Ballantyne", "email": "hello@grahamballantyne.com"},
+    {"name": "Radek Benkel", "email": "radek@benkel.pl"}
   ],
   "keywords": ["github", "bot", "git", "ci", "hubot"],
   "dependencies": {
