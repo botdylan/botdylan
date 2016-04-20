@@ -25,11 +25,11 @@ console.log('* Configuration path: ' + config_file);
 
 config_options = require('cjson').load(config_file);
 env_options = {
-  username: process.env.GITHUB_USERNAME || '',
-  password: process.env.GITHUB_PASSWORD || '',
-  secret: process.env.GITHUB_WEBHOOK_SECRET || ''
+  username: process.env.GITHUB_USERNAME || undefined,
+  password: process.env.GITHUB_PASSWORD || undefined,
+  secret: process.env.GITHUB_WEBHOOK_SECRET || undefined
 }
-app_options = _.extend(default_options, config_options, env_options);
+app_options = _.defaults({}, env_options, config_options, default_options);
 
 if (!app_options.secret) {
   console.log('* No secret specified! Your webhook may be insecure: https://developer.github.com/webhooks/securing/');
