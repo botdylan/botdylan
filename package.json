@@ -19,7 +19,7 @@
     "github": "0.1.8",
     "crypto": "0.0.3",
     "cron": "1.0.1",
-    "request": "2.25.0"
+    "request": "2.74.0"
   },
   "devDependencies": {
     "mocha": "*",
